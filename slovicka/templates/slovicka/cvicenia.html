@@ -1,0 +1,52 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slovicka</title>
+    <link rel="stylesheet" href="{% static 'slovicka/styles.css' %}">
+
+</head>
+<body>
+<div class="notlogged">
+     <div class="userinfo">Som prihlásený ako {{ user.get_username|title }} z {{user.groups.get}} - <a class="odhlasenie" href="/slovicka/odhlasenie">Odhlasit sa</a></div>
+</div>
+<form method="post" id="formular">
+    {% csrf_token %}
+
+    <div class="slovicka">
+    {% for slovicko in slovicka %}
+        {% if  forloop.counter0|divisibleby:5 or forloop.first %}
+        <div class="tab">
+        {% endif %}
+            <div class="parzadane">
+                <div class="zadaneslovo">{{ slovicko }}</div>
+                <!--<input name="odpoved" id="odpoved" autocomplete="off">-->
+                <input name="odpoved" class="odpoved" autocomplete="off">
+            </div>
+        {% if forloop.counter0|divisibleby:4 and not forloop.first or forloop.last %}
+        </div>
+        {% endif %}
+
+    {% endfor %}
+        <div class="spodok">
+            <div class="bodky">
+                    {% for slovicko in slovicka %}
+                    {% if forloop.first or forloop.counter0|divisibleby:5 %}
+                        <span class="step"></span>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            <div class="tlacitko">
+                    <!--<button type="submit">Odovzdat</button>-->
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Späť</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Ďalej</button>
+            </div>
+        </div>
+
+    </div>
+
+
+</form>
+<script src="{% static 'slovicka/scriptikstranky.js' %}"></script>
+</body>
+</html>

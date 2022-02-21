@@ -1,0 +1,19 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slovicka</title>
+    <link rel="stylesheet" href="{% static 'slovicka/styles.css' %}">
+</head>
+<body>
+<div class="notlogged">
+     <div class="userinfo">Som prihlásený ako {{ user.get_username|title }} z {{user.groups.get}} - <a class="odhlasenie" href="/slovicka/odhlasenie">Odhlasit sa</a></div>
+</div>
+
+<div class="slovicka"  id="spravene">
+        <div class="done">Toto cvičenie si už odovzdal</div>
+        <a class="spatnahomea" href="{% url 'home' %}"><div class="spatnahome">Späť</div></a>
+</div>
+
+</body>
+</html>

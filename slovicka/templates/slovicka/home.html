@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slovicka</title>
+    <link rel="stylesheet" href="{% static 'slovicka/styles.css' %}">
+    <script src="{% static 'slovicka/scriptik.js' %}"></script>
+</head>
+<body>
+<div class="notlogged" id="logged">
+    <div class="checkboxclass">
+        <input type="checkbox" id="checkboxik" onclick="schovat()">
+        <label for="checkboxik">Schovať vypracované zadania</label>
+    </div>
+    <div class="userinfo">Som prihlásený ako {{ user.get_username|title }} z {{user.groups.get}} - <a class="odhlasenie" href="/slovicka/odhlasenie">Odhlasit sa</a></div>
+</div>
+<!--<a href="/slovicka/odhlasenie">Odhlasit sa</a>-->
+{% if cvicenia %}
+<div class="cviceniacont">
+{% for cvicenie in cvicenia %}
+<div class="cvicenia {% if cvicenie in hotove %}hotove{% endif %}">
+    <a class="linknacvicenie" href="{% url 'cvicenie' cvicenie.id %}">
+        <div class="popis">
+            <div class="nazov">
+                {{ cvicenie.nazov }}
+            </div>
+            <div class="datum">
+                Zverejnené: {{ cvicenie.datum|date:"d.m.y" }}
+            </div>
+        </div>
+        <div class="state">
+          {% if cvicenie in hotove %}<img class="statepng" src="{% static 'slovicka/checkmark.png' %}"> {% else %}
+            <img class="statepng" src="{% static 'slovicka/clock.png' %}"> {% endif %}
+        </div>
+    </a>
+</div>
+</div>
+
+{% endfor %}
+{% endif %}
+</body>
+</html>

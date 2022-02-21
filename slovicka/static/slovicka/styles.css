@@ -1,0 +1,287 @@
+body {
+font-family: sans-serif;
+margin: 0;
+background: #e9ecef;
+}
+
+.notlogged{
+background: linear-gradient(90deg, rgba(0,9,36,1) 0%, rgba(131,0,252,1) 100%);
+height: 2.25vw;
+color: white;
+line-height: 2.25vw;
+padding-right: 2vw;
+font-weight: bold;
+text-align: right;
+margin-bottom: 1vw;
+box-shadow: 0px 5px 5px #383838;
+
+}
+
+.container{
+border: 3px solid #8300fc;
+width: 25vw;
+height: 20vw;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-top: -10vw;
+margin-left: -12.5vw;
+box-shadow: 5px 5px 5px #383838;
+background: #ffffff;
+text-align: center;
+}
+
+.inputiky{
+width: 40%;
+height: 15%;
+border-radius: 8px;
+margin: 1vw 1vw;
+border: 2px solid #8300fc;
+font-size: 1.2em;
+}
+
+#buttonlogin {
+border: 2px solid #8300fc;
+border-radius: 8px;
+width: 30%;
+height: 15%;
+cursor: pointer;
+margin-top: 1vw;
+}
+
+.nadpis{
+font-size: 2em;
+border-bottom: 3px solid #8300fc;
+height: 15%;
+padding-top: 1vw;
+}
+
+.odhlasenie{
+color: lightblue;
+font-weight: bold;
+text-decoration: none;
+}
+.cviceniecont{
+width: 50vw;
+}
+.cvicenia{
+width: 40vw;
+height: 7vw;
+border: 2px solid #8300fc;
+border-radius: 8px;
+margin: 1vw auto;
+box-shadow: 5px 5px 5px #383838;
+font-size: 1.75vw;
+
+}
+
+
+.linknacvicenie{
+text-decoration: none;
+color: black;
+/*display: block; */
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+
+
+}
+
+.statepng{
+width: 4vw;
+float: right;
+
+}
+.nazov{
+font-weight: bold;
+}
+.popis{
+float: left;
+display: flex;
+justify-content: center;
+flex-direction: column;
+height: 5vw;
+
+}
+
+.datum{
+font-size: 1.5vw;
+}
+
+
+
+/*.checkboxclass{
+position: absolute;
+left: 43.35%;
+
+}*/
+
+.checkboxclass{
+text-align: center;
+}
+
+#logged{
+position: relative;
+}
+
+.userinfo{
+position: absolute;
+right: 1%;
+top: 0%;
+
+}
+
+#checkboxik{
+appearance: none;
+margin: 0;
+background-color: #fff;
+width: 20px;
+height: 20px;
+border-radius: 0.15em;
+border: 0.15em solid black;
+color: black;
+cursor: pointer;
+transform: translateY(-1px);
+display: inline-grid;
+place-content: center;
+}
+
+#checkboxik::before{
+content: "";
+background: #8300fc;
+width: 10px;
+height: 10px;
+transform: scale(0);
+transition: 120ms transform ease-in-out;
+margin: 0;
+padding: 0;
+}
+#checkboxik:checked::before{
+transform: scale(1);
+}
+
+.tab{
+height: 75%;
+padding: 1em;
+display: none;
+flex-direction: column;
+justify-content: space-evenly;
+font-size: 2vw;
+font-weight: bold;
+text-align: left;
+}
+.slovicka{
+width: 40vw;
+height: 35vw;
+border: 2px solid #8300fc;
+border-radius: 15px;
+margin: 5vw auto;
+box-shadow: 5px 5px 5px #383838;
+
+}
+
+.bodky{
+display: inline-block;
+vertical-align: center;
+line-height: 50px;
+
+}
+.parzadane input{
+float: right;
+}
+
+.parzadane{
+margin-left: 2em;
+margin-right: 2em;
+}
+.odpoved{
+border: 1px solid #8300fc;
+border-radius: 15px;
+width: 200px;
+transform: translateY(-4px);
+margin-left: 2vw;
+font-size: 2vw;
+padding: 10px;
+}
+
+.zadaneslovo{
+display: inline-block;
+text-align: left;
+}
+.tlacitko{
+float: right;
+display: inline-block;
+line-height: 50px;
+vertical-align: center;
+}
+.spodok{
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 0 1vw;
+height: 12.5%;
+}
+
+#prevBtn, #nextBtn{
+border: 1px solid #8300fc;
+border-radius: 15px;
+font-weight: bold;
+padding: 1em;
+font-size: 1vw;
+cursor: pointer;
+}
+
+input.invalid{
+background-color: rgb(255, 0, 0, 0.5)
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+  vertical-align: center;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step.finish {
+  background-color: #8300fc;
+}
+#spravene{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+flex-direction: column;
+}
+
+.done{
+font-weight: bold;
+font-size: 3em;
+}
+
+.spatnahome{
+border: 1px solid #8300fc;
+border-radius: 15px;
+padding: 1em;
+font-weight: bold;
+height: 50px;
+width: 150px;
+line-height: 50px;
+font-size: 2em;
+}
+.spatnahomea{
+text-decoration: none;
+color: black;
+font-size: 1em;
+text-align: center;
+}
