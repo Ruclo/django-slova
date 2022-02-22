@@ -29,7 +29,7 @@ function fixStepIndicator(n) {
 function nextPrev(n) {
     var x = document.getElementsByClassName('tab');
     if (n == 1 && !validateForm()) return false;
-    if (currentTab != x.length - 1) {
+    if (currentTab != x.length - 1 || currentTab == x.length - 1 && n == -1) {
         x[currentTab].style.display = 'none';
     }
     currentTab = currentTab + n
