@@ -1,0 +1,43 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slovicka</title>
+    <link rel="stylesheet" href="{% static 'slovicka/styles.css' %}">
+    <script src="{% static 'slovicka/scriptspajanie.js' %}"></script>
+
+</head>
+<body>
+<div class="notlogged">
+     <div class="userinfo">Som prihlásený ako {{ user.get_username|title }} z {{user.groups.get}} - <a class="odhlasenie" href="/slovicka/odhlasenie">Odhlasit sa</a></div>
+</div>
+
+    <div id="slovickacontainer">
+        <div class="bezbuttonu">
+            <div class="zadania">
+                {% for slovicko in slovicka1 %}
+                <div class="slovickospajanie" id="slovicko{{ forloop.counter0 }}">{{ slovicko }}</div>
+                {% endfor %}
+            </div>
+            <div class="odpovede">
+                <form method="post" class="formularikspajanie" id="formularikspajanie">
+                    {% csrf_token %}
+                    {% for slovicko in slovicka1 %}
+                    <input name="odpoved" type="hidden" class="inputy">
+                    {% endfor %}
+                </form>
+                {% for slovicko in slovicka2 %}
+                <div class="odpovedecont" id="{{ forloop.counter0 }}" ondragover="allowDrop(event)" ondrop="drop(event)"><div class="diviky" id="odpoved{{ forloop.counter0 }}" draggable="true" ondragstart="handleDragStart(event)" ondragend="handleDragEnd(event)">{{ slovicko }}</div></div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tlacitecko">
+            <button type="button" id="prevBtn" class="tlacitkoodovzdat" onclick="odovzdat()">Odovzdať</button>
+        </div>
+    </div>
+
+
+</form>
+
+</body>
+</html>

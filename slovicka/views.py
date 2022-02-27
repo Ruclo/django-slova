@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from .models import Cvicenie, Pokus, Odpoved
+from random import shuffle
 from django.contrib.auth.models import Group
 # Create your views here.
 
@@ -89,16 +90,31 @@ def cvicenie(request, cvicenie_id):
             #print(request.POST.items())
             return redirect('/slovicka/home/')
         else:
-            vypracovane = Pokus.objects.filter(ziak=request.user, cvicenie=cvicenie)
-            if not vypracovane:
-                slovicka_set = cvicenie.slovicko_set.all()
-                slovicka = []
-                for slovicko in slovicka_set:
-                    slovicka.append(slovicko.jazyk1)
-                return render(request, 'slovicka/cvicenia.html', context={'slovicka': slovicka})
-                #return HttpResponse('Toto je tvoje')
-            else:
-                return render(request, 'slovicka/done.html')
+            if cvicenie.typ == 'Dopisovanie':
+                vypracovane = Pokus.objects.filter(ziak=request.user, cvicenie=cvicenie)
+                if not vypracovane:
+                    slovicka_set = cvicenie.slovicko_set.all()
+                    slovicka = []
+                    for slovicko in slovicka_set:
+                        slovicka.append(slovicko.jazyk1)
+                    return render(request, 'slovicka/cvicenia.html', context={'slovicka': slovicka})
+                    #return HttpResponse('Toto je tvoje')
+                else:
+                    return render(request, 'slovicka/done.html')
+            elif cvicenie.typ == 'Spajanie':
+                vypracovane = Pokus.objects.filter(ziak=request.user, cvicenie=cvicenie)
+                if not vypracovane:
+                    slovicka_set = cvicenie.slovicko_set.all()
+                    slovicka1 = []
+                    slovicka2 = []
+                    for slovicko in slovicka_set:
+                        slovicka1.append(slovicko.jazyk1)
+                        slovicka2.append(slovicko.jazyk2)
+                    shuffle(slovicka2)
+                    return render(request, 'slovicka/cvicenia2.html', context={'slovicka1': slovicka1, 'slovicka2' : slovicka2})
+                    # return HttpResponse('Toto je tvoje')
+                else:
+                    return render(request, 'slovicka/done.html')
     else:
         return HttpResponse('Toto nie je tvoje')
 

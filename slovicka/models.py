@@ -10,6 +10,7 @@ class Cvicenie(models.Model):
     groups = tuple(Group.objects.all())
     vyber = zip(map(str,groups),map(str,groups))
     trieda = models.CharField(max_length=100, choices=vyber)
+    typ = models.CharField(max_length = 100, choices = [('Dopisovanie', 'Dopisovanie'), ('Spajanie', 'Spajanie')], default='Dopisovanie')
 
     def __str__(self):
         return self.nazov
