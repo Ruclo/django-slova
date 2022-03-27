@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <title>Slovicka</title>
     <link rel="stylesheet" href="{% static 'slovicka/styles.css' %}">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
 </head>
-<body>
+<body id="indexbody">
 <div class="notlogged">
 
 </div>
@@ -19,10 +20,10 @@
         <div class="container2">
             <!--<label for="username">Prihlasovacie meno</label>-->
 
-            <input type="text" placeholder="Prihlasovacie meno" name="username" id="username" class="inputiky" required>
+            <input type="text" placeholder="Prihlasovacie meno" autocomplete="off" name="username" id="username" class="inputiky" required>
             <br>
             <!--<label for="password">Heslo</label>-->
-            <input type="password" placeholder="Heslo" name="password" id="password" class="inputiky" required>
+            <input type="password" placeholder="Heslo" name="password" autocomplete="off" id="password" class="inputiky" required>
             <br>
             <button type="submit" id="buttonlogin">Prihlásiť sa</button>
         </div>

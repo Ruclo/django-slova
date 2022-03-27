@@ -2,13 +2,19 @@ body {
 font-family: sans-serif;
 margin: 0;
 background: #e9ecef;
+/*font-size: 1vw;*/
 }
-
+@media screen and (max-width: 600px) {
+#indexbody {
+font-size: 0.6em;
+}
+}
 .notlogged{
 background: linear-gradient(90deg, rgba(0,9,36,1) 0%, rgba(131,0,252,1) 100%);
-height: 2.25vw;
+/*height: 2.25vw;*/
+height: 3em;
 color: white;
-line-height: 2.25vw;
+line-height: 3em;
 padding-right: 2vw;
 font-weight: bold;
 text-align: right;
@@ -19,25 +25,32 @@ box-shadow: 0px 5px 5px #383838;
 
 .container{
 border: 3px solid #8300fc;
-width: 25vw;
-height: 20vw;
+/*width: 25vw;
+height: 20vw;*/
+width: 80%;
+height: 60%;
+max-width: 35em;
+max-height: 30em;
 position: absolute;
 top: 50%;
 left: 50%;
-margin-top: -10vw;
-margin-left: -12.5vw;
+transform: translate(-50%, -50%);
+/*margin-top: -15em;*/
+/*margin-left: -17.5em;*/
 box-shadow: 5px 5px 5px #383838;
 background: #ffffff;
 text-align: center;
+font-size: 1em;
 }
 
 .inputiky{
-width: 40%;
+width: 60%;
+max-width: 200px;
 height: 15%;
 border-radius: 8px;
-margin: 1vw 1vw;
+margin: 1.25em;
 border: 2px solid #8300fc;
-font-size: 1.2em;
+font-size: 1.5em;
 }
 
 #buttonlogin {
@@ -46,14 +59,17 @@ border-radius: 8px;
 width: 30%;
 height: 15%;
 cursor: pointer;
-margin-top: 1vw;
+margin-top: 1.25em;
+font-size: 1.25em;
 }
 
 .nadpis{
-font-size: 2em;
+font-size: 2.5em;
 border-bottom: 3px solid #8300fc;
 height: 15%;
-padding-top: 1vw;
+line-height: 1.75em;
+/*line-height: 2.5em;*/
+/*padding-top: 1vw;*/
 }
 
 .odhlasenie{
@@ -65,13 +81,18 @@ text-decoration: none;
 width: 50vw;
 }
 .cvicenia{
-width: 40vw;
-height: 7vw;
+/*width: 40vw;*/
+width: 100%;
+max-width: 750px;
+/*height: 7vw;*/
+height: 100%;
+max-height: 150px;
 border: 2px solid #8300fc;
 border-radius: 8px;
 margin: 1vw auto;
 box-shadow: 5px 5px 5px #383838;
-font-size: 1.75vw;
+/*font-size: 1.75vw; */
+font-size: 1.75em;
 
 }
 
@@ -91,12 +112,13 @@ align-items: center;
 }
 
 .statepng{
-width: 4vw;
+width: 2.5em;
 float: right;
 
 }
 .nazov{
 font-weight: bold;
+font-size: 1.2em;
 }
 .popis{
 float: left;
@@ -108,7 +130,8 @@ height: 5vw;
 }
 
 .datum{
-font-size: 1.5vw;
+/*font-size: 1.5vw;*/
+font-size: 1em;
 }
 
 
@@ -267,6 +290,7 @@ flex-direction: column;
 .done{
 font-weight: bold;
 font-size: 3em;
+text-align: center;
 }
 
 .spatnahome{
